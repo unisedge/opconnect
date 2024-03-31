@@ -28,7 +28,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <section className="absolute right-3 top-3">
+            <section className="absolute bottom-[63px] left-[9px]">
               <ModeToggle />
             </section>
             {children}
