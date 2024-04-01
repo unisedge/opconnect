@@ -3,7 +3,7 @@ import { logout } from "@/actions/logout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const StudentLayout = async ({ children }: { children: React.ReactNode }) => {
+const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   const onclick = () => {
     logout();
   };
@@ -14,13 +14,13 @@ const StudentLayout = async ({ children }: { children: React.ReactNode }) => {
       sm:w-[25%] md:w-[15%] "
       >
         <Button variant="link" asChild className="">
-          <Link href="/student">Home</Link>
+          <Link href="/admin">Home</Link>
         </Button>
         <Button variant="link" asChild className="">
-          <Link href="/student/applications">My Applications</Link>
+          <Link href="/admin/applications">Applications</Link>
         </Button>
         <Button variant="link" asChild className="">
-          <Link href="/student/about">About</Link>
+          <Link href="/admin/about">About</Link>
         </Button>
         <Button variant="link" onClick={onclick} className="">
           Logout
@@ -31,4 +31,4 @@ const StudentLayout = async ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default StudentLayout;
+export default AdminLayout;

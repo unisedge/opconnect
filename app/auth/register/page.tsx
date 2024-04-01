@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Icons } from "@/components/icons";
+// import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -72,8 +72,10 @@ export default function RegisterPage() {
     <div className="max-w-lg min-w-[400px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center"> SignUp </CardTitle>
-          <CardDescription className="text-center">
+          <CardTitle className="text-2xl text-center tracking-[6px]">
+            SignUp
+          </CardTitle>
+          <CardDescription className="text-center tracking-[3px]">
             Create an account
           </CardDescription>
         </CardHeader>
@@ -108,7 +110,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="tracking-[2px]">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -129,7 +131,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel className="tracking-[2px]">Password</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -147,7 +149,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel className="tracking-[2px]">Name</FormLabel>
                       <FormControl>
                         <Input type="text" placeholder="example" {...field} />
                       </FormControl>
@@ -161,7 +163,9 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Who are you?</FormLabel>
+                      <FormLabel className="tracking-[2px]">
+                        Who are you?
+                      </FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -185,7 +189,7 @@ export default function RegisterPage() {
               </div>
               <FormError message={error} />
               <FormSucess message={sucess} />
-              <Button type="submit" className="w-full ">
+              <Button type="submit" className="w-full tracking-[4px]">
                 Register
               </Button>
             </form>
@@ -195,7 +199,12 @@ export default function RegisterPage() {
         </CardFooter> */}
         </CardContent>
         <CardFooter>
-          <Button variant="link" size="sm" asChild className="w-full">
+          <Button
+            variant="link"
+            size="sm"
+            asChild
+            className="w-full tracking-[3px]"
+          >
             <Link href="/auth/login">Already have an account?</Link>
           </Button>
         </CardFooter>

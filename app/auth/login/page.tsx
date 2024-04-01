@@ -71,8 +71,10 @@ export default function LoginPage() {
     <div className="max-w-lg min-w-[400px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center"> LOGIN </CardTitle>
-          <CardDescription className="text-center">
+          <CardTitle className="text-2xl text-center tracking-[6px]">
+            LOGIN
+          </CardTitle>
+          <CardDescription className="text-center tracking-[3px]">
             Enter credentials to signin
           </CardDescription>
         </CardHeader>
@@ -97,7 +99,6 @@ export default function LoginPage() {
               </span>
             </div> */}
           </div>
-          {/*  */}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-2">
@@ -107,7 +108,7 @@ export default function LoginPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="tracking-[2px]">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -128,7 +129,7 @@ export default function LoginPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel className="tracking-[2px]">Password</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -140,7 +141,7 @@ export default function LoginPage() {
                         variant="link"
                         size="sm"
                         asChild
-                        className="px-0 font-normal"
+                        className="px-0 font-normal tracking-[3px]"
                       >
                         <Link href="/auth/reset-password">
                           Forgot password?
@@ -154,8 +155,8 @@ export default function LoginPage() {
 
               <FormError message={error || urlError} />
               <FormSucess message={sucess} />
-              <Button type="submit" className="w-full ">
-                Login
+              <Button type="submit" className="w-full tracking-[4px]">
+                SignIn
               </Button>
             </form>
           </Form>
@@ -164,7 +165,12 @@ export default function LoginPage() {
         </CardFooter> */}
         </CardContent>
         <CardFooter>
-          <Button variant="link" size="sm" asChild className="w-full">
+          <Button
+            variant="link"
+            size="sm"
+            asChild
+            className="w-full tracking-[3px]"
+          >
             <Link href="/auth/register">Don't have an account?</Link>
           </Button>
         </CardFooter>

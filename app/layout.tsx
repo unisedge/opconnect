@@ -5,7 +5,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+
 const inter = Inter({ subsets: ["latin"] });
+// const giest = GeistSans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +25,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={`${inter.className} h-full`}>
+        <body className={`${GeistSans} h-full`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
