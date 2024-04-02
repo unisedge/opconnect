@@ -21,13 +21,15 @@ const StudentDashboard = (props: Props) => {
       </header>
       <main className="flex h-full items-center justify-center gap-3 ">
         <div>
-          <Image
-            src={user?.image as string}
-            alt="Picture of the author"
-            width={100}
-            height={100}
-            className="rounded-2xl"
-          />
+          {user?.image && (
+            <Image
+              src={user?.image}
+              alt="Picture of the author"
+              width={100}
+              height={100}
+              className="rounded-2xl"
+            />
+          )}
         </div>
         <div>
           <p>Name: {user?.name}</p>
