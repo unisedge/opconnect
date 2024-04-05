@@ -19,6 +19,7 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  idNumber      String?
   image         String?
   password      String?
   role          UserRole @default(GUEST)
@@ -60,4 +61,28 @@ model PasswordResetToken {
   expires DateTime
 
   @@unique([email, token])
+}
+
+enum OpportunityStatus{
+  Pending
+  Applied
+  Processing
+  NoResponse
+  Selected
+  Rejected
+}
+enum OpportunityType{
+  OffCampus
+  OnCampus
+}
+model Opportunity{
+id      String @id @default(cuid())
+type    OpportunityType
+jobTitle   String?
+link    String?
+company String?
+status  OpportunityStatus @default(Pending)
+description String?
+createdAt DateTime @default(now())
+updatedAt DateTime?
 }

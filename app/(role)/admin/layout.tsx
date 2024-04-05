@@ -11,7 +11,7 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
     <section className="h-full w-full gap-2 flex">
       <section
         className="flex  flex-col justify-start items-start my-24 
-      sm:w-[25%] md:w-[15%] "
+      sm:w-[25%] md:w-[15%]"
       >
         <Button variant="link" asChild className="">
           <Link href="/admin">Home</Link>
@@ -26,7 +26,7 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
           Logout
         </Button>
       </section>
-      <section className="w-full my-12">{children}</section>
+      <section className="w-full mx-3 my-12">{children}</section>
     </section>
   );
 };
