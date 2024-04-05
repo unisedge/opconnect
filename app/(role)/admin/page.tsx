@@ -1,8 +1,8 @@
 "use client";
-import { logout } from "@/actions/logout";
-import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/use-current-user";
-import { useSession } from "next-auth/react";
+import Image from "next/image";
+
+// import { useSession } from "next-auth/react";
 
 import React from "react";
 
@@ -12,18 +12,34 @@ const AdminDashboard = (props: Props) => {
   // const { update } = useSession();
   // then after changing someting, we have to call update() int .then()
   // then after rhe above step go to auth.js and change the jwt field.
+
   const user = useCurrentUser();
-  const onclick = () => {
-    logout();
-  };
+
   return (
-    <div>
-      <h1>Admin page</h1>
-      {JSON.stringify(user)}
-      <Button size="lg" onClick={onclick}>
-        Logout
-      </Button>
-    </div>
+    <section className="w-full text-wrap h-full">
+      <header className="w-full text-center p-2 text-xl font-extrabold border-b rounded-2xl tracking-widest">
+        <h1>Dashboard</h1>
+      </header>
+      <main className="flex h-full items-center justify-center gap-3 ">
+        <div>
+        {user?.image && (
+            <Image
+              src={user?.image}
+              alt="Picture of the author"
+              width={100}
+              height={100}
+              className="rounded-2xl"
+            />
+          )}
+        </div>
+        <div>
+          <p>Name: {user?.name}</p>
+          <p>Email: {user?.email}</p>
+          <p>Role: {user?.role}</p>
+          {/* <p>profile: {user?.image}</p> */}
+        </div>
+      </main>
+    </section>
   );
 };
 

@@ -7,7 +7,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: email,
-    subject: "Confirm your email",
+    subject: "Link to confirm your email from OpConnect",
     html: `<p>Click <a href="${confirmLink}">here</a> to confirm email.</p>`,
   });
 };
@@ -18,7 +18,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: "onboarding@resend.dev", //bharathaaleti018@gmail.com
     to: email,
-    subject: "Reset your password",
+    subject: "Link to reset password from OpConnect",
     html: `<p>Click <a href="${resetLink}">here</a> to reset password.</p>`,
   });
 };
