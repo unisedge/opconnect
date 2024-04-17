@@ -32,6 +32,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Opportunity } from "@prisma/client";
+import { useCurrentUserRole } from "@/hooks/use-current-user-role";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { OpportunityCard } from "./opportunity-card";
 
 interface Props {
   data: Opportunity[];
@@ -46,6 +49,8 @@ export default function OpportunityTable({ data, columns }: Props) {
     pageIndex: 0,
     pageSize: 5,
   });
+
+  const userRole = useCurrentUserRole();
 
   const table = useReactTable({
     data,
@@ -105,6 +110,20 @@ export default function OpportunityTable({ data, columns }: Props) {
                 );
               })}
           </DropdownMenuContent>
+          <>
+            {userRole === "ADMIN" ? (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>Add Opportunity</Button>
+                </DialogTrigger>
+                <DialogContent className="">
+                  <OpportunityCard />
+                </DialogContent>
+              </Dialog>
+            ) : (
+              ""
+            )}
+          </>
         </DropdownMenu>
       </div>
       <div className="rounded-md border">
