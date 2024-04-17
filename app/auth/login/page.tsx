@@ -166,6 +166,14 @@ export default function LoginPage() {
         </CardContent>
         <CardFooter>
           <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="w-full tracking-[1px] font-normal"
+          >
+            <Link href="/">Back to home</Link>
+          </Button>
+          <Button
             variant="link"
             size="sm"
             asChild

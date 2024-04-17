@@ -1,17 +1,17 @@
 "use server";
 import { db } from "@/db/db";
 import { OpportunitySchema } from "@/schemas";
+import { OpportunityType } from "@prisma/client";
 import { z } from "zod";
 
-export const addOpportunity = async (
+export const postOpportunity = async (
   values: z.infer<typeof OpportunitySchema>
 ) => {
   const validatedFields = OpportunitySchema.safeParse(values);
   if (!validatedFields.success) {
     return { error: "Invalid Fields!" };
   }
-  const { type, jobTitle, link, company, description } =
-    validatedFields.data;
+  const { type, jobTitle, link, company, description } = validatedFields.data;
   try {
     await db.opportunity.create({
       data: {
