@@ -1,11 +1,26 @@
-import React from "react";
+"use client";
 
-type Props = {};
+import OpportunityTable from "@/components/opportunities-table";
 
-export default function Applicaitons({}: Props) {
+import { HashLoader } from "react-spinners";
+import { getOpportunities } from "@/hooks/opportunitites-qureies";
+import { columns } from "./columns";
+
+export default function Applicaitons() {
+  const { data: opportunities, isPending, error } = getOpportunities();
+
+  if (isPending)
+    return (
+      <section className="flex justify-center items-center h-full">
+        <HashLoader size={120} className="dark:invert" />
+      </section>
+    );
+
+  if (error) return "An error has occurred: " + error.message;
   return (
-    <div className="flex justify-center font-semibold text-2xl items-center h-full tracking-[6px]">
-      My Applicaitons
-    </div>
+    <section className="flex flex-col justify-center   w-full font-semibold text-2xl p-16 gap-2">
+      {/* <EditOpportunity /> */}
+      <OpportunityTable data={opportunities} columns={columns} />
+    </section>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +12,6 @@ import {
 import { CaretSortIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { ColumnDef } from "@tanstack/react-table";
 import { Opportunity } from "@prisma/client";
-import { EditOpportunity } from "@/components/opportunity-edit";
 
 export const columns: ColumnDef<Opportunity>[] = [
   // {
@@ -109,10 +107,8 @@ export const columns: ColumnDef<Opportunity>[] = [
               Copy Opportunity ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <EditOpportunity />
-            </DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuItem>add actions</DropdownMenuItem>
+            <DropdownMenuItem>add actions</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

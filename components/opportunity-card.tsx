@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState, useTransition } from "react";
+import React, { useState } from "react";
 import { OpportunitySchema } from "@/schemas";
 import * as z from "zod";
 import {
@@ -31,16 +31,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { addOpportunity } from "@/actions/add-opportunity";
-import { useRouter } from "next/navigation";
+
 import { DialogClose, DialogFooter } from "./ui/dialog";
+import { addOpportunity } from "@/hooks/opportunities-mutations";
 
 type Props = {};
 
 export const OpportunityCard = ({}: Props) => {
-  const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState<string | undefined>("");
+  const [err, setErr] = useState<string | undefined>("");
   const [sucess, setSucess] = useState<string | undefined>("");
+
+  const { isPending, mutateAsync, variables } = addOpportunity();
 
   const form = useForm<z.infer<typeof OpportunitySchema>>({
     resolver: zodResolver(OpportunitySchema),
@@ -53,25 +54,23 @@ export const OpportunityCard = ({}: Props) => {
     },
   });
   function onSubmit(values: z.infer<typeof OpportunitySchema>) {
-    setError("");
+    setErr("");
     setSucess("");
-    setIsPending(true);
-    addOpportunity(values)
+    mutateAsync(values)
       .then((data) => {
         if (data?.error) {
           form.reset();
-          setError(data?.error);
+          setErr(data?.error);
         }
 
         if (data?.success) {
           setSucess(data?.success);
           form.reset();
-          setTimeout(() => setSucess(""), 1000);
+          setTimeout(() => setSucess(""), 3000);
         }
       })
-      .catch(() => setError("Something went wrong!..."));
-    setIsPending(false);
-    // router.push("/admin/applications");
+      .catch(() => setErr("Something went wrong!..."));
+    console.log("variables : ", variables);
   }
   return (
     <div className="max-w-2xl min-w-[500px]">
@@ -193,7 +192,7 @@ export const OpportunityCard = ({}: Props) => {
                 />
               </div>
 
-              <FormError message={error} />
+              <FormError message={err} />
               <FormSucess message={sucess} />
               <Button type="submit" className="w-full tracking-[4px]">
                 Add
@@ -202,7 +201,12 @@ export const OpportunityCard = ({}: Props) => {
           </Form>
           <DialogFooter className="sm:justify-start">
             <DialogClose asChild>
-              <Button type="button" variant="secondary">
+              <Button
+                disabled={isPending}
+                value={isPending ? "adding..." : "add"}
+                type="button"
+                variant="secondary"
+              >
                 Close
               </Button>
             </DialogClose>

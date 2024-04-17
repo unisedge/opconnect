@@ -31,8 +31,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { OpportunityCard } from "@/components/opportunity-card";
 import { Opportunity } from "@prisma/client";
 
 interface Props {
@@ -61,6 +59,7 @@ export default function OpportunityTable({ data, columns }: Props) {
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
     onPaginationChange: setPagination,
+
     state: {
       sorting,
       columnFilters,
@@ -107,14 +106,6 @@ export default function OpportunityTable({ data, columns }: Props) {
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button>Add Opportunity</Button>
-          </DialogTrigger>
-          <DialogContent className="">
-            <OpportunityCard />
-          </DialogContent>
-        </Dialog>
       </div>
       <div className="rounded-md border">
         <Table>
