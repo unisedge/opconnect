@@ -70,7 +70,7 @@ export const OpportunityCard = ({}: Props) => {
         }
       })
       .catch(() => setErr("Something went wrong!..."));
-    console.log("variables : ", variables);
+    // console.log("variables : ", variables);
   }
   return (
     <div className="max-w-2xl min-w-[500px]">
@@ -194,19 +194,19 @@ export const OpportunityCard = ({}: Props) => {
 
               <FormError message={err} />
               <FormSucess message={sucess} />
-              <Button type="submit" className="w-full tracking-[4px]">
+              <Button
+                type="submit"
+                className="w-full tracking-[4px]"
+                disabled={isPending}
+                value={isPending ? "adding..." : "add"}
+              >
                 Add
               </Button>
             </form>
           </Form>
           <DialogFooter className="sm:justify-start">
             <DialogClose asChild>
-              <Button
-                disabled={isPending}
-                value={isPending ? "adding..." : "add"}
-                type="button"
-                variant="secondary"
-              >
+              <Button type="button" variant="secondary">
                 Close
               </Button>
             </DialogClose>

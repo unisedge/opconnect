@@ -15,11 +15,11 @@ export const postOpportunity = async (
   try {
     await db.opportunity.create({
       data: {
-        type,
-        jobTitle,
-        link,
-        company,
-        description,
+        type: type as OpportunityType,
+        jobTitle: jobTitle,
+        link: link,
+        company: company,
+        description: description,
       },
     });
   } catch (error) {

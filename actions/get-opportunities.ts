@@ -11,3 +11,16 @@ export const fetchOpportunites = async () => {
   }
   return [];
 };
+
+export const fetchOpportunitesById = async (id: any) => {
+  try {
+    const data = await db.opportunity.findUnique({
+      where: {
+        id: id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  return null;
+};
