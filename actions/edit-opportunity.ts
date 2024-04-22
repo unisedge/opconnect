@@ -12,7 +12,7 @@ export const updateOpportunity = async (
     return { error: "Invalid Fields!" };
   }
   console.log(validatedFields.data);
-  const { id, type, jobTitle, link, company, description, updatedAt } =
+  const { id, type, jobTitle, link, company, description } =
     validatedFields.data;
   try {
     await db.opportunity.update({
@@ -23,7 +23,6 @@ export const updateOpportunity = async (
         link: link,
         company: company,
         description: description,
-        updatedAt: updatedAt,
       },
     });
   } catch (error) {

@@ -58,7 +58,6 @@ export const EditOpportunity = ({ opportunity }: Props) => {
       link: opportunity.link!,
       company: opportunity.company!,
       description: opportunity.description!,
-      updatedAt: new Date(Date.now()).toISOString(),
     },
   });
   function onSubmit(values: z.infer<typeof OpportunityEditSchema>) {

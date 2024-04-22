@@ -7,6 +7,7 @@ import { getUserByEmail } from "@/utils/user";
 import { db } from "@/db/db";
 import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationEmail } from "@/lib/mail.ts";
+import { UserRole } from "@prisma/client";
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const validatedFields = RegisterSchema.safeParse(values);
   if (!validatedFields.success) {
@@ -25,10 +26,10 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   try {
     await db.user.create({
       data: {
-        name,
-        email,
+        name: name,
+        email: email,
         password: hashedPassword,
-        role,
+        role: role as UserRole,
       },
     });
   } catch (error) {

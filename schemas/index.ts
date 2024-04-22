@@ -9,13 +9,14 @@ export const OpportunitySchema = z.object({
 });
 
 export const OpportunityEditSchema = z.object({
-  id: z.string().min(1, { message: "ID does not exist, try editing again!." }),
+  id: z
+    .number()
+    .positive({ message: "ID does not exist, try editing again!." }),
   type: z.string().min(8, { message: "Type is required!" }),
   jobTitle: z.string(),
   link: z.string(),
   company: z.string(),
   description: z.string(),
-  updatedAt: z.string(),
 });
 
 export const NewPasswordSchema = z.object({

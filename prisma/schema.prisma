@@ -6,7 +6,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
+// ---------------------------------------user-----------------------------------
 enum UserRole{
   STUDENT
   ADMIN
@@ -17,13 +17,16 @@ enum UserRole{
 model User {
   id            String    @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String    @unique
   emailVerified DateTime?
-  idNumber      String?
+  idNumber      String?   @unique
   image         String?
   password      String?
   role          UserRole @default(GUEST)
   accounts      Account[]
+
+  profile     Profile?
+  
 }
 
 model Account {
@@ -44,7 +47,7 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
-
+// ---------------------------------------VerificationToken-----------------------------------
 model VerificationToken {
   id String @id @default(cuid())
   email String
@@ -53,7 +56,7 @@ model VerificationToken {
 
   @@unique([email, token])
 }
-
+// ---------------------------------------PasswordResetToken-----------------------------------
 model PasswordResetToken {
   id String @id @default(cuid())
   email String
@@ -62,7 +65,7 @@ model PasswordResetToken {
 
   @@unique([email, token])
 }
-
+// ---------------------------------------Opportunity-----------------------------------
 enum OpportunityStatus{
   Pending
   Applied
@@ -76,13 +79,105 @@ enum OpportunityType{
   OnCampus
 }
 model Opportunity{
-id      String @id @default(cuid())
-type    OpportunityType
-jobTitle   String?
-link    String?
-company String?
-status  OpportunityStatus @default(Pending)
-description String?
-createdAt DateTime @default(now())
-updatedAt DateTime?
+  id          Int @id @default(autoincrement())
+  type        OpportunityType
+  jobTitle    String?
+  link        String?
+  company     String?
+  status      OpportunityStatus @default(Pending)
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+}
+// ---------------------------------------Profile-----------------------------------
+model Ssc{
+  id String @id @default(cuid())
+  certificate String  @unique
+  schoolName String
+  academicYear String?
+  yearOfPass String
+  grades String
+
+  profileId  String @unique
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+model Intermediate{
+  id String @id @default(cuid())
+  collegeName String
+  academicYear String?
+  yearOfPass String
+  grades String
+  certificate String @unique
+
+  profileId  String @unique
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+}
+model Graduation{
+  id String @id @default(cuid())
+  collegeName String
+  academicYear String?
+  yearOfPass String?
+  cgpa String?
+  certificate String? @unique
+
+  profileId  String @unique
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+}
+model PostGraduation{
+  id String @id @default(cuid())
+  collegeName String?
+  academicYear String?
+  yearOfPass String?
+  cgpa String?
+  certificate String? @unique
+
+  profileId  String @unique
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+}
+model Address{
+  id String @id @default(cuid())
+  country String
+  state String
+  city String
+  pincode String 
+  landmark String?
+  houseNumber String?
+
+  profileId  String @unique
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+}
+model Profile{
+  id String @id @default(cuid())
+  firstName String
+  lastName String
+  rollNumber String @unique
+  phone String @unique @db.VarChar(10)
+  dateOfBirth String?
+  currentSemester String?
+  gender String
+  ssc Ssc?
+  inter Intermediate?
+  graduation Graduation?
+  postGraduation PostGraduation?
+  academicYear String?
+  branch String?
+  course String?
+  section String?
+  personalEmail String? @unique
+  email String? @unique
+  resume String?
+  address Address?
+  profilePicture String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId  String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([firstName, lastName])
+  @@unique([firstName, lastName, dateOfBirth])
+  
 }

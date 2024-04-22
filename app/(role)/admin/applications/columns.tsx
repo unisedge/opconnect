@@ -16,7 +16,6 @@ import { Opportunity } from "@prisma/client";
 import { EditOpportunity } from "@/components/opportunity-edit";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useToast } from "@/components/ui/use-toast";
 import { deletingOpportunity } from "@/hooks/opportunities-mutations";
 
 export const columns: ColumnDef<Opportunity>[] = [
@@ -105,7 +104,6 @@ export const columns: ColumnDef<Opportunity>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const { toast } = useToast();
       const Opportunity = row.original;
       const { mutateAsync } = deletingOpportunity();
       return (
@@ -118,13 +116,12 @@ export const columns: ColumnDef<Opportunity>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
+            {/* <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(Opportunity.id)}
             >
               Copy Opportunity ID
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
             <DropdownMenuSeparator />
-
             <DropdownMenuItem asChild>
               <Dialog>
                 <DialogTrigger asChild>
