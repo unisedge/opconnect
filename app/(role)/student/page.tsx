@@ -16,7 +16,7 @@ const StudentDashboard = (props: Props) => {
 
   return (
     <section className="w-full text-wrap h-full">
-      <header className="w-full text-center p-2 text-xl font-extrabold border-b rounded-2xl tracking-widest">
+      <header className="w-full text-center p-2 text-xl font-extrabold border-b rounded-2xl ">
         <h1>Dashboard Page</h1>
       </header>
       <main className="flex h-full items-center justify-center gap-3 ">

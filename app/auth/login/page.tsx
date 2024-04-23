@@ -71,10 +71,10 @@ export default function LoginPage() {
     <div className="max-w-lg min-w-[400px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center tracking-[6px]">
+          <CardTitle className="text-2xl text-center ">
             LOGIN
           </CardTitle>
-          <CardDescription className="text-center tracking-[3px]">
+          <CardDescription className="text-center ">
             Enter credentials to signin
           </CardDescription>
         </CardHeader>
@@ -108,7 +108,7 @@ export default function LoginPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">Email</FormLabel>
+                      <FormLabel className="">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -129,7 +129,7 @@ export default function LoginPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">Password</FormLabel>
+                      <FormLabel className="">Password</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -141,7 +141,7 @@ export default function LoginPage() {
                         variant="link"
                         size="sm"
                         asChild
-                        className="px-0 font-normal tracking-[3px]"
+                        className="px-0 font-normal "
                       >
                         <Link href="/auth/reset-password">
                           Forgot password?
@@ -155,7 +155,7 @@ export default function LoginPage() {
 
               <FormError message={error || urlError} />
               <FormSucess message={sucess} />
-              <Button type="submit" className="w-full tracking-[4px]">
+              <Button type="submit" className="w-full ">
                 SignIn
               </Button>
             </form>
@@ -169,7 +169,7 @@ export default function LoginPage() {
             variant="ghost"
             size="sm"
             asChild
-            className="w-full tracking-[1px] font-normal"
+            className="w-full  font-normal"
           >
             <Link href="/">Back to home</Link>
           </Button>
@@ -177,7 +177,7 @@ export default function LoginPage() {
             variant="link"
             size="sm"
             asChild
-            className="w-full tracking-[3px]"
+            className="w-full "
           >
             <Link href="/auth/register">Don't have an account?</Link>
           </Button>
