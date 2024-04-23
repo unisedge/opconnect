@@ -83,10 +83,10 @@ export const EditOpportunity = ({ opportunity }: Props) => {
     // <div className="max-w-2xl min-w-[500px]">
     <Card>
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl text-center tracking-[3px]">
+        <CardTitle className="text-2xl text-center ">
           Editing Opportunity
         </CardTitle>
-        <CardDescription className="text-center tracking-wide">
+        <CardDescription className="text-center ">
           Do necessary edits and proceed to save changes
         </CardDescription>
       </CardHeader>
@@ -100,7 +100,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
                 disabled={isPending}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="tracking-wide">Type</FormLabel>
+                    <FormLabel className="">Type</FormLabel>
                     <span className="text-sm">*</span>
                     <Select
                       onValueChange={field.onChange}
@@ -126,7 +126,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
                 disabled={isPending}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="tracking-wide">Job Title</FormLabel>
+                    <FormLabel className="">Job Title</FormLabel>
                     <FormControl className="text-xs">
                       <Input
                         type="text"
@@ -144,7 +144,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
                 disabled={isPending}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="tracking-wide">Link</FormLabel>
+                    <FormLabel className="">Link</FormLabel>
                     <FormControl className="text-xs">
                       <Input
                         type="text"
@@ -162,7 +162,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
                 disabled={isPending}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="tracking-wide">Company</FormLabel>
+                    <FormLabel className="">Company</FormLabel>
                     <FormControl className="text-xs">
                       <Input
                         type="text"
@@ -180,7 +180,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
                 disabled={isPending}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="tracking-wide">
+                    <FormLabel className="">
                       Job Description
                     </FormLabel>
                     <FormControl className="text-xs">
@@ -202,7 +202,7 @@ export const EditOpportunity = ({ opportunity }: Props) => {
               <DialogClose asChild>
                 <Button
                   type="submit"
-                  className="w-full tracking-[4px]"
+                  className="w-full "
                   disabled={isPending}
                   value={isPending ? "adding..." : "add"}
                 >
