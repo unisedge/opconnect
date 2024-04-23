@@ -36,7 +36,7 @@ export default async function RootLayout({
             <section className="absolute bottom-[63px] left-[9px]">
               <ModeToggle />
             </section>
-
+            
             <ReactQueryProvider>{children}</ReactQueryProvider>
           </ThemeProvider>
         </body>

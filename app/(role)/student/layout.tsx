@@ -11,16 +11,20 @@ const StudentLayout = async ({ children }: { children: React.ReactNode }) => {
     <section className="h-full w-full gap-2 flex">
       <section
         className="flex  flex-col justify-start items-start my-24 
-      sm:w-[25%] md:w-[15%] "
+      sm:w-[25%] md:w-[15%]  border-r-2"
       >
         <Button variant="link" asChild className="">
           <Link href="/student">Home</Link>
         </Button>
         <Button variant="link" asChild className="">
+          <Link href="/student/oppurtunities">Opportunities
+</Link>
+        </Button>
+        <Button variant="link" asChild className="">
           <Link href="/student/applications">My Applications</Link>
         </Button>
         <Button variant="link" asChild className="">
-          <Link href="/student/about">About</Link>
+          <Link href="/student/profile">Profile</Link>
         </Button>
         <Button variant="link" onClick={onclick} className="">
           Logout
@@ -28,6 +32,7 @@ const StudentLayout = async ({ children }: { children: React.ReactNode }) => {
       </section>
       <section className="w-full my-12">{children}</section>
     </section>
+    
   );
 };
 
