@@ -15,12 +15,12 @@ export default async function Home() {
           alt="landing page image"
           className="w-12 h-12 dark:invert"
         />
-        <h1 className="text-2xl font-extrabold p-3 tracking-[6px]">
+        <h1 className="text-2xl font-extrabold p-3 ">
           Landing Page...
         </h1>
       </div>
 
-      <Button size="lg" asChild className="tracking-[3px]">
+      <Button size="lg" asChild className="">
         <Link href="/auth/login">Sign In</Link>
       </Button>
       {/* <Dialog>

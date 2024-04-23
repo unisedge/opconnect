@@ -76,10 +76,10 @@ export const OpportunityCard = ({}: Props) => {
     <div className="max-w-2xl min-w-[500px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center tracking-[3px]">
+          <CardTitle className="text-2xl text-center ">
             Adding Opportunity
           </CardTitle>
-          <CardDescription className="text-center tracking-wide">
+          <CardDescription className="text-center ">
             Enter necessary details
           </CardDescription>
         </CardHeader>
@@ -93,7 +93,7 @@ export const OpportunityCard = ({}: Props) => {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-wide">Type</FormLabel>
+                      <FormLabel className="">Type</FormLabel>
                       <span className="text-sm">*</span>
                       <Select
                         onValueChange={field.onChange}
@@ -119,7 +119,7 @@ export const OpportunityCard = ({}: Props) => {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-wide">Job Title</FormLabel>
+                      <FormLabel className="">Job Title</FormLabel>
                       <FormControl className="text-xs">
                         <Input
                           type="text"
@@ -137,7 +137,7 @@ export const OpportunityCard = ({}: Props) => {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-wide">Link</FormLabel>
+                      <FormLabel className="">Link</FormLabel>
                       <FormControl className="text-xs">
                         <Input
                           type="text"
@@ -145,7 +145,7 @@ export const OpportunityCard = ({}: Props) => {
                           {...field}
                         />
                       </FormControl>
-                      {/* <FormDescription className="tracking-[1px] ">
+                      {/* <FormDescription className=" ">
                           Please put application link in here...
                         </FormDescription> */}
                       <FormMessage />
@@ -158,7 +158,7 @@ export const OpportunityCard = ({}: Props) => {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-wide">Company</FormLabel>
+                      <FormLabel className="">Company</FormLabel>
                       <FormControl className="text-xs">
                         <Input
                           type="text"
@@ -176,7 +176,7 @@ export const OpportunityCard = ({}: Props) => {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-wide">
+                      <FormLabel className="">
                         Job Description
                       </FormLabel>
                       <FormControl className="text-xs">
@@ -196,7 +196,7 @@ export const OpportunityCard = ({}: Props) => {
               <FormSucess message={sucess} />
               <Button
                 type="submit"
-                className="w-full tracking-[4px]"
+                className="w-full "
                 disabled={isPending}
                 value={isPending ? "adding..." : "add"}
               >

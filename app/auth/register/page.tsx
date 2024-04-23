@@ -72,10 +72,10 @@ export default function RegisterPage() {
     <div className="max-w-lg min-w-[400px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center tracking-[6px]">
+          <CardTitle className="text-2xl text-center ">
             SignUp
           </CardTitle>
-          <CardDescription className="text-center tracking-[3px]">
+          <CardDescription className="text-center ">
             Create an account
           </CardDescription>
         </CardHeader>
@@ -110,7 +110,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">Email</FormLabel>
+                      <FormLabel className="">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -131,7 +131,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">Password</FormLabel>
+                      <FormLabel className="">Password</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
@@ -149,7 +149,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">Name</FormLabel>
+                      <FormLabel className="">Name</FormLabel>
                       <FormControl>
                         <Input type="text" placeholder="example" {...field} />
                       </FormControl>
@@ -163,7 +163,7 @@ export default function RegisterPage() {
                   disabled={isPending}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="tracking-[2px]">
+                      <FormLabel className="">
                         Who are you?
                       </FormLabel>
                       <Select
@@ -189,7 +189,7 @@ export default function RegisterPage() {
               </div>
               <FormError message={error} />
               <FormSucess message={sucess} />
-              <Button type="submit" className="w-full tracking-[4px]">
+              <Button type="submit" className="w-full ">
                 Register
               </Button>
             </form>
@@ -203,7 +203,7 @@ export default function RegisterPage() {
             variant="link"
             size="sm"
             asChild
-            className="w-full tracking-[3px]"
+            className="w-full "
           >
             <Link href="/auth/login">Already have an account?</Link>
           </Button>
