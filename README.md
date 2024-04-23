@@ -7,7 +7,7 @@ This project is a NextJS Application for managing the career services of SR Univ
 1. NextJs
 2. Prisma
 3. TailwindCSS
-4. Shadcn
+4. ShadCN UI
 5. Postgres
 
 ## Prerequsites
