@@ -26,17 +26,19 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={`${GeistSans} h-full`}>
+        <body className={`${GeistSans} relative h-full`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            <section className="absolute bottom-[63px] left-[9px]">
+
+            {/* <section
+            className="absolute "
+            >
               <ModeToggle />
-            </section>
-            
+            </section> */}
             <ReactQueryProvider>{children}</ReactQueryProvider>
           </ThemeProvider>
         </body>
