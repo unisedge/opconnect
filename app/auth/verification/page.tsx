@@ -43,9 +43,11 @@ export default function VerificationPage() {
     <div className="max-w-lg min-w-[400px]">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center"> Oops!... </CardTitle>
+          <CardTitle className="text-2xl text-center">
+            User verification
+          </CardTitle>
           <CardDescription className="text-center">
-            Something went wrong!
+            please wait while we verify you . . .
           </CardDescription>
         </CardHeader>
         <CardContent className="flex justify-center gap-4">
