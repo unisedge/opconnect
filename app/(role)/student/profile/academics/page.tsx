@@ -1,0 +1,79 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { Button } from "@/components/ui/button";
+import {
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+const formSchema = z.object({
+	username: z.string().min(2, {
+		message: "Username must be at least 2 characters.",
+	}),
+	firstname: z.string().min(3, {
+		message: "Firstname should not be empty.",
+	}),
+	lastname: z.string().min(3, {
+		message: "lastname should not be empty",
+	}),
+	rollno: z.string().min(10, {
+		message: "rollno should not be empty",
+	}),
+	phone: z.number().min(10, {
+		message: "invalid phone number",
+	}),
+	dob: z.number().nonnegative({
+		message: "date of birth cant be negative",
+	}),
+});
+
+export default function AcademicsForm() {
+	// ...
+	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
+		defaultValues: {
+			username: "9.0",
+		},
+	});
+
+	// 2. Define a submit handler.
+	function onSubmit(values: z.infer<typeof formSchema>) {
+		// Do something with the form values.
+		// ✅ This will be type-safe and validated.
+		console.log(values);
+	}
+
+	return (
+		<Form {...form}>
+			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+				<FormField
+					control={form.control}
+					name="username"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Academics Form</FormLabel>
+							<FormControl>
+								<Input placeholder="ssc rollnumber" {...field} />
+							</FormControl>
+							<FormDescription>
+								this is your GPA.
+							</FormDescription>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<Button type="submit">Update</Button>
+			</form>
+		</Form>
+	);
+}

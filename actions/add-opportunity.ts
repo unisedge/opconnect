@@ -1,8 +1,8 @@
 "use server";
 import { db } from "@/db/db";
 import { OpportunitySchema } from "@/schemas";
-import { OpportunityType } from "@prisma/client";
-import { z } from "zod";
+import type { OpportunityType } from "@prisma/client";
+import type { z } from "zod";
 
 export const postOpportunity = async (
   values: z.infer<typeof OpportunitySchema>

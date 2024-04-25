@@ -5,7 +5,7 @@ import { signIn } from "@/auth";
 import { LoginSchema } from "@/schemas";
 import { getUserByEmail } from "@/utils/user";
 import { AuthError } from "next-auth";
-import * as z from "zod";
+import type * as z from "zod";
 
 export const login = async (
   values: z.infer<typeof LoginSchema>
